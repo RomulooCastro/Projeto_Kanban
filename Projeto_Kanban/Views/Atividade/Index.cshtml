@@ -1,0 +1,82 @@
+﻿@model List<AtividadeModel>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+
+            <h1>Pendentes</h1>
+
+            @if(Model.Count > 0)
+            {
+                @foreach (var atividade in Model.Where(x => x.Status.Nome == "Pendente"))
+                {
+                    <div class="card text-center">
+                        <div class="card-header">
+                            @atividade.Status.Nome
+                        </div>
+                        <div class="card-body">
+                                <h5 class="card-title">@atividade.Titulo</h5>
+                                <p class="card-text">@atividade.Descricao</p>
+                                <a href="#">Próximo Card</a>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                                @atividade.DataDescricao.ToString("dd/MM/yy")
+                        </div>
+                    </div>
+                }
+            }
+         </div>
+
+         <div class="col-4">
+              <h1>Em andamento</h1>
+
+            @if(Model.Count > 0)
+            {
+                @foreach (var atividade in Model.Where(x => x.Status.Nome == "Em andamento"))
+                {
+                    <div class="card text-center">
+                        <div class="card-header">
+                            @atividade.Status.Nome
+                        </div>
+                        <div class="card-body">
+                                <h5 class="card-title">@atividade.Titulo</h5>
+                                <p class="card-text">@atividade.Descricao</p>
+                                <a href="#">Próximo Card</a>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                                @atividade.DataDescricao.ToString("dd/MM/yy")
+                        </div>
+                    </div>
+                }
+            }
+         </div>
+
+         <div class="col-4">
+             <h1>Finalizada</h1>
+
+            @if(Model.Count > 0)
+            {
+                @foreach (var atividade in Model.Where(x => x.Status.Nome == "Finalizada"))
+                {
+                    <div class="card text-center">
+                        <div class="card-header">
+                            @atividade.Status.Nome
+                        </div>
+                        <div class="card-body">
+                                <h5 class="card-title">@atividade.Titulo</h5>
+                                <p class="card-text">@atividade.Descricao</p>
+                                <a href="#">Deletar Card</a>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                                @atividade.DataDescricao.ToString("dd/MM/yy")
+                        </div>
+                    </div>
+                }
+            }
+         </div>
+
+    </div>
+
+</div>
