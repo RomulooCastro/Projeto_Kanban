@@ -68,5 +68,60 @@ namespace Projeto_Kanban.Services.Atividade
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<AtividadeModel> Deletar(int atividadeId)
+        {
+            try
+            {
+                var atividade = await _context.Atividades.FindAsync(atividadeId);
+
+                _context.Remove(atividade);
+                await _context.SaveChangesAsync();
+
+                return atividade;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<AtividadeModel> MudarCard(int atividadeId)
+        {
+            try
+            {
+                var atividade = await _context.Atividades.FindAsync(atividadeId);
+
+                atividade.StatusId++;
+
+                _context.Update(atividade);
+                await _context.SaveChangesAsync();
+
+                return atividade;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<AtividadeModel> MudarCardAnterior(int atividadeId)
+        {
+            try
+            {
+                var atividade = await _context.Atividades.FindAsync(atividadeId);
+
+                atividade.StatusId--;
+
+                _context.Update(atividade);
+                await _context.SaveChangesAsync();
+
+                return atividade;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

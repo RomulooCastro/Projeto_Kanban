@@ -12,14 +12,14 @@
             {
                 @foreach (var atividade in Model.Where(x => x.Status.Nome == "Pendente"))
                 {
-                    <div class="card text-center">
-                        <div class="card-header">
+                    <div class="card text-center my-3">
+                        <div class="card-header bg-primary">
                             @atividade.Status.Nome
                         </div>
                         <div class="card-body">
                                 <h5 class="card-title">@atividade.Titulo</h5>
                                 <p class="card-text">@atividade.Descricao</p>
-                                <a href="#">Próximo Card</a>
+                            <a asp-action="MudarCard" asp-controller="Atividade" asp-route-id="@atividade.Id" class="mx-10"><i class="bi bi-caret-right-fill"></i></a>
                         </div>
                         <div class="card-footer text-body-secondary">
                                 @atividade.DataDescricao.ToString("dd/MM/yy")
@@ -36,14 +36,16 @@
             {
                 @foreach (var atividade in Model.Where(x => x.Status.Nome == "Em andamento"))
                 {
-                    <div class="card text-center">
-                        <div class="card-header">
+                    <div class="card text-center my-3">
+                        <div class="card-header bg-warning">
                             @atividade.Status.Nome
                         </div>
                         <div class="card-body">
                                 <h5 class="card-title">@atividade.Titulo</h5>
                                 <p class="card-text">@atividade.Descricao</p>
-                                <a href="#">Próximo Card</a>
+                            <a asp-action="MudarCardAnterior" asp-controller="Atividade" asp-route-id="@atividade.Id" class="mx-10"><i class="bi bi-caret-left-fill"></i></a>
+                            <a asp-action="MudarCard" asp-controller="Atividade" asp-route-id="@atividade.Id"><i class="bi bi-caret-right-fill"></i></a>
+
                         </div>
                         <div class="card-footer text-body-secondary">
                                 @atividade.DataDescricao.ToString("dd/MM/yy")
@@ -60,14 +62,15 @@
             {
                 @foreach (var atividade in Model.Where(x => x.Status.Nome == "Finalizada"))
                 {
-                    <div class="card text-center">
-                        <div class="card-header">
+                    <div class="card text-center my-3">
+                        <div class="card-header bg-success">
                             @atividade.Status.Nome
                         </div>
                         <div class="card-body">
                                 <h5 class="card-title">@atividade.Titulo</h5>
                                 <p class="card-text">@atividade.Descricao</p>
-                                <a href="#">Deletar Card</a>
+                            <a asp-action="MudarCardAnterior" asp-controller="Atividade" asp-route-id="@atividade.Id" class="mx-10"><i class="bi bi-caret-left-fill"></i></a>
+                            <a asp-action="Deletar" asp-controller="Atividade" asp-route-id="@atividade.Id"><i class="bi bi-trash-fill"></i></a>
                         </div>
                         <div class="card-footer text-body-secondary">
                                 @atividade.DataDescricao.ToString("dd/MM/yy")
