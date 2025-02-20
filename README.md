@@ -20,5 +20,16 @@ Este é um sistema de gerenciamento de atividades inspirado no modelo Kanban, de
 
 ## **Estrutura do Projeto**
 
-
-/Projeto_Kanban │ ├── /Controllers # Controladores para gerenciamento das atividades ├── /Data # Contexto de banco de dados (AppDbContext) ├── /DTOs # Objetos de transferência de dados (DTOs) ├── /Models # Modelos de dados (Atividade, Status) ├── /Services # Lógica de negócios (Serviços de Atividade) ├── /Views # Views Razor para interação com o usuário │ ├── /wwwroot # Arquivos estáticos (CSS, JS) │ └── /appsettings.json # Configurações do banco de dados e outras configurações
+```plaintext
+/Projeto_Kanban
+│
+├── /Controllers          # Controladores para gerenciamento das atividades
+├── /Data                 # Contexto de banco de dados (AppDbContext)
+├── /DTOs                 # Objetos de transferência de dados (DTOs)
+├── /Models               # Modelos de dados (Atividade, Status)
+├── /Services             # Lógica de negócios (Serviços de Atividade)
+├── /Views                # Views Razor para interação com o usuário
+│
+├── /wwwroot              # Arquivos estáticos (CSS, JS)
+│
+└── /appsettings.json     # Configurações do banco de dados e outras configurações
