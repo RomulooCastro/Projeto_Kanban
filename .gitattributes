@@ -61,3 +61,11 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+# Priorizar C# como linguagem principal
+*.cs linguist-detectable=true
+*.csproj linguist-detectable=true
+
+# Ignorar CSS na contagem de linguagem
+*.css linguist-vendored
+*.scss linguist-vendored
+*.less linguist-vendored
